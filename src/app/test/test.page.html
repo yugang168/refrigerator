@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <p>{{cel}}</p>
+  <p>{{cel_real}}</p>
+  <p>{{cel_fah_real}}</p>
+  <p>{{cel_fah}}</p> -->
+  <!-- <p>{{cel_all[0]}}</p>
+  <p>{{cel_all[1]}}</p>
+  <p>{{cel_all[2]}}</p>
+  <p>{{cel_all[3]}}</p>
+  <p>{{cel.indexOf(255)}}</p>
+  <p>{{cel.indexOf(8)}}</p>
+  <p>******************</p>
+  <p>{{fah_all[0]}}</p>
+  <p>{{fah_all[1]}}</p>
+  <p>{{fah_all[2]}}</p>
+  <p>{{fah_all[3]}}</p>
+  <p>********-10-10(-18-18)*********</p>
+  <p>{{cel_set}}</p>
+  <p>{{cel_set_real}}</p>
+  <p>{{cel_fah_set_real}}</p>
+  <p>{{cel_fah_set}}</p> -->
+
+  <ion-button (click)="test()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+  
+  <ion-button (click)="test1()" expand="block" fill="clear" shape="round">
+    点我1
+  </ion-button>
+  <ion-button (click)="test2()" expand="block" fill="clear" shape="round">
+    点我2
+  </ion-button>
+  <ion-item>
+  <ion-label>输入：</ion-label><ion-input type="text" placeholder="Awesome Input" [(ngModel)]="testMsg"  (ngModelChange)="inputChange()" ></ion-input>
+  </ion-item>
+
+  <ion-toolbar>
+    <ion-range [(ngModel)]="tempValue" [min]="minValue" [max]="maxValue" [pin]="true" (ionKnobMoveEnd)="onIonChange($event)">
+      <ion-icon slot="start" name="snow-outline"></ion-icon>
+      <ion-icon slot="end" name="sunny-outline"></ion-icon>
+    </ion-range>
+  </ion-toolbar>
+  {{tempValue}}
+  
+
+</ion-content>

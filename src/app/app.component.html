@@ -1,0 +1,99 @@
+<ion-app>
+  <ion-menu contentId="left-slide" menuId="left-slide" side="start" type="overlay">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>欢迎使用智能蓝牙冰箱</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list >
+        <ion-item><ion-img src="./assets/images/refrigerator.jpg"></ion-img></ion-item>
+        <ion-item id="modal-refrigerator" (click)="refrigerator()">
+          <ion-icon name="today-outline"></ion-icon><ion-label>我的冰箱</ion-label><ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-item id="modal-instructions" (click)="instructions()">
+          <ion-icon name="help-circle-outline"></ion-icon><ion-label>使用说明</ion-label><ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <!-- <ion-item id="modal-rename" (click)="rename()">
+          <ion-icon name="help-circle-outline"></ion-icon><ion-label>重命名</ion-label><ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+        </ion-item> -->
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+   <!-- 我的冰箱界面 -->
+   <ion-modal *ngIf="func=='refrigertor'"  trigger="modal-refrigerator" (willDismiss)="onWillDismiss($event)">
+    <ng-template >
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">取消</ion-button>
+          </ion-buttons>
+          <ion-title>我的冰箱</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">确定</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list>
+          <ion-item *ngFor="let item of savedDevices">
+            <ion-label>{{item['rename']}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal >
+    <!-- 使用说明界面 -->
+    <ion-modal *ngIf="func=='instructions'" trigger="modal-instructions" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">取消</ion-button>
+          </ion-buttons>
+          <ion-title>连接教程</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">确定</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-slides mode="ios" pager="ios" scrollbar="ios">
+          <ion-slide>
+            <ion-img src="../assets/images/bluePair.jpg"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="../assets/images/controller.jpg"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <!-- 重命名界面 -->
+  <!-- <ion-modal *ngIf="func=='rename'" trigger="modal-rename" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">取消</ion-button>
+          </ion-buttons>
+          <ion-title>重命名</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">确定</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label>重命名</ion-label>
+          <ion-input placeholder="请输入您需要修改的名字" ></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal> -->
+
+
+  <ion-router-outlet id="left-slide"></ion-router-outlet>
+</ion-app>
+

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-title>
+    扫描设备
+  </ion-title>
+
+  <ion-button  id="scan" expand="block" fill="clear" shape="round" (click)="scan()">开始扫描</ion-button>
+</ion-header>
+
+<ion-content>
+ <ion-list> 
+
+
+  <ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
+    <ion-label >{{ device.name || 'Unnamed' }}</ion-label>
+    <ion-note slot="end" >RSSI: {{ device.rssi }}</ion-note>
+  </ion-item>
+
+  <!-- <ion-button  expand="block" fill="clear" (click)="junp()" shape="round">
+    跳转
+   </ion-button> -->
+
+
+ </ion-list> 
+
+
+</ion-content>
+

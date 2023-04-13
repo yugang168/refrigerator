@@ -1,0 +1,8 @@
+{
+  "name": "refrigerator",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
